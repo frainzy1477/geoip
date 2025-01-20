@@ -1,12 +1,10 @@
 {
   "input": [
     {
-      "type": "maxmindGeoLite2CountryCSV",
+      "type": "dbipCountryMMDB",
       "action": "add",
       "args": {
-        "country": "./geolite2/GeoLite2-Country-Locations-en.csv",
-        "ipv4": "./geolite2/GeoLite2-Country-Blocks-IPv4.csv",
-        "ipv6": "./geolite2/GeoLite2-Country-Blocks-IPv6.csv"
+        "uri": "./db-ip/dbip-country-lite.mmdb"
       }
     },
     {
@@ -23,6 +21,7 @@
       "type": "v2rayGeoIPDat",
       "action": "output",
       "args": {
+        "outputDir": "./output",
         "outputName": "geoip.dat"
       }
     },
@@ -30,6 +29,7 @@
       "type": "v2rayGeoIPDat",
       "action": "output",
       "args": {
+        "outputDir": "./output",
         "outputName": "geoip-only-cn-private.dat",
         "wantedList": ["cn", "private"]
       }
@@ -38,8 +38,16 @@
       "type": "v2rayGeoIPDat",
       "action": "output",
       "args": {
+        "outputDir": "./output",
         "oneFilePerList": true,
         "wantedList": ["cn", "private", "test"]
+      }
+    },
+    {
+      "type": "v2rayGeoIPDat",
+      "action": "output",
+      "args": {
+        "oneFilePerList": true
       }
     },
     {
